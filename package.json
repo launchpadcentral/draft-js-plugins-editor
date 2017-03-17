@@ -33,10 +33,7 @@
     "prepublish": "npm run build"
   },
   "license": "MIT",
-  "dependencies": {
-    "decorate-component-with-props": "^1.0.2",
-    "find-with-regex": "^1.0.2",
-    "union-class-names": "^1.0.0",
+  "devDependencies": {
     "babel-cli": "^6.7.5",
     "babel-core": "^6.7.6",
     "babel-eslint": "^6.0.2",
@@ -48,5 +45,10 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.5.0"
+  },
+  "dependencies": {
+    "decorate-component-with-props": "^1.0.2",
+    "find-with-regex": "^1.0.2",
+    "union-class-names": "^1.0.0"
   }
 }
