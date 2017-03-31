@@ -51,7 +51,7 @@ class PluginEditor extends Component {
       this.resolveDecorators(),
       this.getEditorState,
       this.onChange);
-    this._editorState = EditorState.set(this.props.editorState, { decorator: compositeDecorator });
+    this._editorState = EditorState.set(this.props.editorState, { decorator: this.compositeDecorator });
     // this.state = {}; // TODO for Nik: ask ben why this is relevent
   }
 
