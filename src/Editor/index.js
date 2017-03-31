@@ -48,14 +48,18 @@ class PluginEditor extends Component {
     }
 
 console.log('in constructor PluginEditor 1')
-    this.state = {}; // TODO for Nik: ask ben why this is relevent
     const compositeDecorator = createCompositeDecorator(
       this.resolveDecorators(),
       this.getEditorState,
       this.onChange);
-    const _editorState = EditorState.set(this.props.editorState, { decorator: compositeDecorator });
+
 console.log('in constructor PluginEditor 2')
-    this.onChange(moveSelectionToEnd(_editorState));
+    const _editorState = EditorState.set(this.props.editorState, { decorator: compositeDecorator });
+    this.state = {
+      editorState: _editorState
+    };
+
+    // this.onChange(moveSelectionToEnd(_editorState));
 console.log('in constructor PluginEditor 3')
   }
 
