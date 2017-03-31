@@ -65,6 +65,7 @@ console.log('in constructor PluginEditor 3, editorState is', _editorState, 'stat
 
   componentWillMount() {
     console.log('in componentwillmount in PluginEditor')
+    this.onChange(this.state.editorState)
   }
 
   componentDidMount(){
