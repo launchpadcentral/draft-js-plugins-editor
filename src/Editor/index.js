@@ -48,15 +48,15 @@ class PluginEditor extends Component {
     }
 
     this.state = {}; // TODO for Nik: ask ben why this is relevent
-  }
-
-  componentWillMount() {
     const compositeDecorator = createCompositeDecorator(
       this.resolveDecorators(),
       this.getEditorState,
       this.onChange);
     const _editorState = EditorState.set(this.props.editorState, { decorator: compositeDecorator });
     this.onChange(moveSelectionToEnd(_editorState));
+  }
+
+  componentWillMount() {
   }
 
   componentWillUnmount() {
