@@ -68,10 +68,10 @@ class PluginEditor extends Component {
       this.resolveDecorators(),
       this.getEditorState,
       this.onChange);
-    let _editorState = EditorState.set(nextProps.editorState, { decorator: compositeDecorator });
 
-    if(nextProps.editorState.getCurrentContent().last().get("text") !== this.props.editorState.getCurrentContent().last().get("text")){
-      this.onChange(moveSelectionToEnd(_editorState));
+    if(nextProps.editorState.getDecorator().length !== this.props.editorState.getDecorator().length){
+      _editorState  = EditorState.set(nextProps.editorState, { decorator: compositeDecorator });
+      this.setState({editerState:moveSelectionToEnd(_editorState)});
     }
   }
 
