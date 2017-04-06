@@ -43,6 +43,7 @@ class PluginEditor extends Component {
     // attach proxy methods like `focus` or `blur`
     for (const method of proxies) {
       this[method] = (...args) => (
+        // TODO we can only get this on componentdidmout
         this.refs.editor[method](...args)
       );
     }
@@ -61,6 +62,16 @@ class PluginEditor extends Component {
 
   componentWillMount() {
     this.onChange(this.state.editorState)
+  }
+
+  componentWillReceiveProps(nextProps){
+    console.count('in receive props, props are', nextProps)
+    let compositeDecorator = createCompositeDecorator(
+      this.resolveDecorators(),
+      this.getEditorState,
+      this.onChange);
+    let _editorState = EditorState.set(this.props.editorState, { decorator: compositeDecorator });
+    this.onChange(moveSelectionToEnd(_editorState));
   }
 
   componentWillUnmount() {
