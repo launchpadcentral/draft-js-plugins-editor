@@ -40,13 +40,6 @@ class PluginEditor extends Component {
       plugin.initialize(this.getPluginMethods());
     }
 
-    // attach proxy methods like `focus` or `blur`
-    for (const method of proxies) {
-      this[method] = (...args) => (
-        this.refs.editor[method](...args)
-      );
-    }
-
     let compositeDecorator = createCompositeDecorator(
       this.resolveDecorators(),
       this.getEditorState,
@@ -64,14 +57,25 @@ class PluginEditor extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    let compositeDecorator = createCompositeDecorator(
-      this.resolveDecorators(),
-      this.getEditorState,
-      this.onChange);
+    // let compositeDecorator = createCompositeDecorator(
+    //   this.resolveDecorators(),
+    //   this.getEditorState,
+    //   this.onChange);
 
-    if(nextProps.editorState.getDecorator() && !this.props.editorState.getDecorator()){
-      let _editorState  = EditorState.set(nextProps.editorState, { decorator: compositeDecorator });
-      this.setState({editorState:moveSelectionToEnd(_editorState)});
+    // if(nextProps.editorState.getDecorator() && !this.props.editorState.getDecorator()){
+    //   let _editorState  = EditorState.set(nextProps.editorState, { decorator: compositeDecorator });
+    //   this.setState({editorState:moveSelectionToEnd(_editorState)});
+
+    //   this.
+    // }
+  }
+
+  componentDidMount(){
+    // attach proxy methods like `focus` or `blur`
+    for (var method of proxies) {
+      this[method] = (...args) => (
+        this.refs.editor[method](...args)
+      );
     }
   }
 
