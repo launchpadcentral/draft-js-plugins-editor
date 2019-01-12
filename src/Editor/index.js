@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import {
   Editor,
   EditorState,
@@ -16,12 +17,12 @@ import { List } from 'immutable';
 class PluginEditor extends Component {
 
   static propTypes = {
-    editorState: React.PropTypes.object.isRequired,
-    onChange: React.PropTypes.func.isRequired,
-    plugins: React.PropTypes.array,
-    defaultKeyBindings: React.PropTypes.bool,
-    customStyleMap: React.PropTypes.object,
-    decorators: React.PropTypes.array,
+    editorState: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired,
+    plugins: PropTypes.array,
+    defaultKeyBindings: PropTypes.bool,
+    customStyleMap: PropTypes.object,
+    decorators: PropTypes.array,
   };
 
   static defaultProps = {
